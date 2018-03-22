@@ -1,6 +1,6 @@
 import QuantLib as ql
-import CurveSet.CurveSet as cs
-import CurveSet.ZeroCurve as zc
+import CurveSet as cs
+import ZeroCurve as zc
 from numpy.linalg import inv
 
 if __name__=="__main__":
