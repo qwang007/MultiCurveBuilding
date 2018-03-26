@@ -520,7 +520,7 @@ class CCS(instrument):   #cross currency swap, can be fix-float or float-float a
             swapType1=ql.VanillaSwap.Receiver
             QLSWAP1bumped=ql.NonstandardSwap(swapType1,Notional1,dummyNotional1,schedule1,
                                               fixedrate1,self.Leg1Daycount,schedule1,self.IBORIndex1,
-                                              gearing1,spread1,self.Leg1Daycountt,True,True,
+                                              gearing1,spread1,self.Leg1Daycount,True,True,
                                               ql.ModifiedFollowing)
         engine1=ql.DiscountingSwapEngine(self.zdiscurve1.QLZeroCurve)
         QLSWAP1bumped.setPricingEngine(engine1)
@@ -638,7 +638,7 @@ class CCS(instrument):   #cross currency swap, can be fix-float or float-float a
             swapType1=ql.VanillaSwap.Receiver
             self.QLSWAP1=ql.NonstandardSwap(swapType1,Notional1,dummyNotional1,schedule1,
                                               fixedrate1,self.Leg1Daycount,schedule1,self.IBORIndex1,
-                                              gearing1,spread1,self.Leg1Daycountt,True,True,
+                                              gearing1,spread1,self.Leg1Daycount,True,True,
                                               ql.ModifiedFollowing)
         schedule2=ql.Schedule(self.startdate,
                              self.enddate,
@@ -684,7 +684,8 @@ class CCS(instrument):   #cross currency swap, can be fix-float or float-float a
         self.zdiscurve1.register(self.index)
         if(self.Leg1discurve!=self.Leg2discurve):
             self.zdiscurve2.register(self.index)
-        self.zLeg1forcurve.register(self.index)
+        if(self.Leg1forcurve!='None'):
+            self.zLeg1forcurve.register(self.index)
         self.zLeg2forcurve.register(self.index)
 
 
