@@ -1,6 +1,5 @@
 # MultiCurveBuilding
 # Author: Wang Qian
-# Company: United Overseas Bank, Singapore
 # Email: qwang007@gmail.com
 
 This is a tool in Python for bootstrapping mutli interest curves simutaneously. This tool utilize Python QuantLib package, with OvernightindexedSwap exported. To build multicurves, QuantLib bootstraps them one-by-one. In this tool,  we utilize multivariate optimization supported by Scipy. It has the following advantages:
